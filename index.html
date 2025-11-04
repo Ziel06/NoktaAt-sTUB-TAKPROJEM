@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nokta Atışlı Akıllı Sulama Sistemi - TÜBİTAK Projesi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #000000;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7); /* Şeffaf siyah */
+            transition: background-color 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: #000000; /* Scroll'da koyulaşır */
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://r.resimlink.com/qCQp3I1Kd.jpg') no-repeat center center; /* Projenizin görselini buraya ekleyin */
+            background-size: cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero-section h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+        .hero-section p {
+            font-size: 1.75rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #e00000; /* Mavi çizgi */
+            border-radius: 2px;
+        }
+        .card-custom {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease-in-out;
+            min-height: 280px; /* Kartların aynı hizada durması için */
+        }
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .card-custom .card-body {
+            padding: 2.5rem;
+        }
+        .card-custom .icon-wrapper {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 1.5rem;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: #dee2e6;
+        }
+        .timeline-item::after {
+            content: '\f058'; /* Check-circle icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: -15px;
+            top: 0;
+            font-size: 1.8rem;
+            color: #3798ff;
+            background-color: white;
+            border: 3px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 5px rgba(0,123,255,0.1);
+        }
+        .step-icon {
+            font-size: 2.5rem;
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+        .feature-box {
+            text-align: center;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .feature-box .icon {
+            font-size: 3.5rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .highlight-text {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4" href="#">
+                <i class="fas fa-fire me-2"></i>Nokta Atışlı Akıllı Sulama Sistemi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="#hero">Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="#guclu-yonler">Projemiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="#nasil-calisir">Nasıl Çalışır?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="#kritik-noktalar">Teknik Detaylar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2" href="#iletisim">İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="container">
+            <h1 class="animate__animated animate__fadeInDown">YANGINLA MÜCADELEDE YENİ BİR ÇAĞ</h1>
+            <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                Nokta Atışlı Akıllı Sulama Sistemi ile <span class="highlight-text">Su Tasarrufu ve Maksimum Etki</span>
+            </p>
+            <a href="#guclu-yonler" class="btn btn-primary btn-lg rounded-pill px-4 animate__animated animate__zoomIn animate__delay-2s">
+                Projemizi Keşfet <i class="fas fa-arrow-down ms-2"></i>
+            </a>
+        </div>
+    </header>
+
+    <section id="guclu-yonler" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title mb-5">Projemizin Güçlü Yönleri Ve Çalışma Durumu </h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="icon"><i class="fas fa-tint"></i></div>
+                        <h3>Verimlilik</h3>
+                        <p>Geleneksel sistemlere göre <span class="highlight-text">su ve enerji kullanımını önemli ölçüde azaltır</span>. Sadece ihtiyaç duyulan alana müdahale ederiz.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="icon"><i class="fas fa-house-damage"></i></div>
+                        <h3>Minimal Hasar</h3>
+                        <p>Yangın dışındaki ekipman, envanter ve yapıya verilen <span class="highlight-text">su hasarını en aza indirir</span>. İş sürekliliğini destekler.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box">
+                        <div class="icon"><i class="fas fa-brain"></i></div>
+                        <h3>Teknolojik Entegrasyon</h3>
+                        <p>En güncel görüntü işleme teknikleri, yapay zeka ve hassas robotik mekanikler ile <span class="highlight-text">tamamen akıllı bir sistem</span> sunarız.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <img src="https://via.placeholder.com/800x450?text=Projenizin+Genel+Görseli+veya+Çalışma+Prensibi" class="img-fluid rounded shadow-lg" alt="Proje Genel Görünüm">
+                <p class="mt-3 text-muted">Sistemimizin genel Çalışmalarımıza son hızla devam etmekteyiz bizimle birlikte bu projeyi yürüten ve Yol gösteren FURKAN BUDAK'A cok teşekkürlerimizi sunyoruz .</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="nasil-calisir" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title mb-5">Sistemimiz Nasıl Çalışır?</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="timeline-item">
+                        <h4>Adım 1: Algılama</h4>
+                        <p>Entegre kamera sistemimiz, sürekli olarak ortamı izler. <span class="highlight-text">Yapay zeka tabanlı görüntü işleme algoritmaları</span>, duman ve alevin karakteristik özelliklerini anında tespit eder.</p>
+                        <i class="step-icon fas fa-video"></i>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Adım 2: Konumlandırma</h4>
+                        <p>Yangın tespit edildiğinde, gelişmiş algoritmalar alevin <span class="highlight-text">hassas 3D koordinatlarını</span> belirler. Böylece hedef, milimetrik doğrulukla saptanır.</p>
+                        <i class="step-icon fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Adım 3: Hedefleme ve Müdahale</h4>
+                        <p>Robotik kol veya hareketli nozul sistemi, belirlenen koordinatlara hızlıca yönelir. <span class="highlight-text">Yüksek basınçlı su jeti</span>, sadece yangının kaynağına odaklanarak hedefe yönelik müdahale başlatır.</p>
+                        <i class="step-icon fas fa-crosshairs"></i>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Adım 4: Kontrol ve Optimizasyon</h4>
+                        <p>Sistem, yangın sönene kadar süreci izler ve su atışını dinamik olarak ayarlar. Bu sayede <span class="highlight-text">minimum su ile maksimum söndürme etkinliği</span> sağlanır.</p>
+                        <i class="step-icon fas fa-cogs"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kritik-noktalar" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title mb-5">Kritik Noktalar ve Teknik Detaylar</h2>
+            <p class="lead text-center mb-5">Projemizin omurgasını oluşturan temel teknik yaklaşımlarımız ve üzerinde çalıştığımız kritik detaylar:</p>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card card-custom h-100">
+                        <div class="card-body text-center">
+                            <div class="icon-wrapper"><i class="fas fa-camera"></i></div>
+                            <h4 class="card-title">Algılama Sistemi: Yangını Nasıl Tespit Ediyoruz?</h4>
+                            <p class="card-text">
+                                Yangın tespiti için <span class="highlight-text">kamera ve gelişmiş görüntü işleme teknikleri</span> kullanıyoruz.
+                                <br><br>
+                                <strong class="text-primary">Yapay Zeka Destekli Görüntü İşleme:</strong> Algoritmalarımız, dumanın ve alevin renk, şekil ve hareket dinamiklerini analiz ederek yangını diğer olaylardan ayırt eder.
+                                <br>
+                                <strong class="text-primary">Gelecek: Sensör Füzyonu:</strong> Hassasiyeti artırmak için, ileriki aşamalarda ısı (termal) ve IR (kızılötesi) sensörlerini görüntü işleme ile birleştirmeyi hedefliyoruz. Bu, sistemin daha hızlı ve doğru tepki vermesini sağlayacaktır.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-custom h-100">
+                        <div class="card-body text-center">
+                            <div class="icon-wrapper"><i class="fas fa-robot"></i></div>
+                            <h4 class="card-title">Hedefleme ve Mekanizma: Suyu Nasıl Yönlendiriyoruz?</h4>
+                            <p class="card-text">
+                                Su atışını, yangının 3D konumuna göre <span class="highlight-text">milimetrik hassasiyetle</span> yönlendiriyoruz.
+                                <br><br>
+                                <strong class="text-primary">Servo/Step Motorlu Hassas Hareket:</strong> Nozulumuz, servo veya step motorlar aracılığıyla X, Y ve Z eksenlerinde serbestçe hareket edebilir. Bu, suyu yangının tam kalbine yönlendirmemizi sağlar.
+                                <br>
+                                <strong class="text-primary">Kontrollü Basınç Sistemi:</strong> Pompa ve valf kontrolü ile suyun tazyikini ve akış hızını yangının şiddetine göre ayarlayabiliyoruz. Böylece hem etkili söndürme hem de gereksiz su kullanımını önlemiş oluyoruz.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <img src="https://via.placeholder.com/900x500?text=Projenizin+Teknik+Şeması+veya+3D+Modeli" class="img-fluid rounded shadow-lg" alt="Proje Teknik Şeması">
+                <p class="mt-3 text-muted">Sistemimizin teknik mimarisi ve bileşenlerin yerleşimini gösteren şematik bir görünüm.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="iletisim" class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <h5 class="mb-3">Bize Ulaşın</h5>
+                
+                    <p><i class="fas fa-phone me-2"></i> +90 5333193537</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> [SULTANAHMET TEKNİK ANADOLU LİSESİ]</p>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <p class="mb-0">&copy; SULTAN AHMET TEKNİK ANADOLU LİSESİ 
+        </div>
+    </footer>
+    <footer id="iletisim" class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <h5 class="">Prof. UZMAN Çalısma Ekibimiz</h5>
+                    <p><i class="fas fa-envelope me-2"></i> Ahmet Safa Polat-
+                   -Bertuğ Marazoğlu
+               -Haktan Artan 
+           -Ömer Faruk Kır 
+       -Muhammet Enes Baltacı
+   -Sude Nur Balcı </p>
+                    <p><i class="fas fa-phone me22"></i>Proffosyonel Öğretim Öğretmenlerimizle Hizmetinizdeyiz
+                    DESTEKLERİ İÇİN FURKAN BUDAK'A TEŞEKKÜR EDERİZ</p>
+      
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <p class="mb-0">&copy; 2025 tışlı Akıllı Sulama Sistemi. Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar'ın scroll ile rengini değiştiren JavaScript
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
